@@ -19,7 +19,7 @@ export const ProjectProvider = ({ children }) => {
 
     const fetchProjects = () => {
         setLoading(true);
-        axios.get('http://127.0.0.1:8000/api/projects')
+        axios.get(`${import.meta.env.VITE_API_URL}`)
             .then(res => {
                 setProjects(res.data.data);
                 setLoading(false);
@@ -32,7 +32,7 @@ export const ProjectProvider = ({ children }) => {
 
     const fetchSingleProject = (id) => {
         setLoading(true);
-        axios.get(`http://127.0.0.1:8000/api/projects/${id}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/${id}`)
             .then(res => {
                 setProject(res.data.data);
                 setLoading(false);
